@@ -38,9 +38,12 @@ Servo arm2;
 // FUNCTIONS
 extern void railCrossingInit(void) { 
 	state = beginState; 
+    arm1.attach(servoPin1);
+    arm2.attach(servoPin2);
 	arm1.write(openPos);
 	arm2.write(openPos);
 }
+
 extern byte railCrossingGetState(void) { return state;}
 extern void railCrossingSetState(unsigned char _state) { state = _state; runOnce = true; }
 static void nextState(unsigned char _state, unsigned char _interval) {
